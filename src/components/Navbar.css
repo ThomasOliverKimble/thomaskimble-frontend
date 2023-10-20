@@ -120,6 +120,7 @@
   justify-content: space-around;
   align-items: end;
   height: 60%;
+  opacity: 1;
 }
 
 .navbar-item {
@@ -165,11 +166,17 @@
   }
 
   .navbar-menu {
-    display: none;
+    visibility: hidden;
+    opacity: 0;
   }
 
   .navbar-menu.active {
-    display: flex;
+    visibility: visible;
+    opacity: 1;
+    transition-property: all;
+    transition-duration: 0.2s;
+    transition-timing-function: ease-out;
+    transition-delay: 0.2s;
   }
 
   .navbar-logo {
