@@ -14,7 +14,7 @@
   position: absolute;
   height: 100%;
   width: 100%;
-  background-color: #CE8C8A;
+  background-color: #0000ff;
   z-index: -1;
   left: 0;
   transition: all 0.4s ease-out;
@@ -34,18 +34,18 @@
   left: 0;
   width: 150px;
   height: 100px;
-  background-color: #f3f3f3;
-  box-shadow: 0 0px 30px 80px #f3f3f3;
+  background-color: #fffdd0;
+  box-shadow: 0 0px 30px 80px #fffdd0;
   transition: none;
   z-index: -1;
 }
 
 .navbar-logo {
-  background-image: url('/public/images/logos/bob_logo_text_light.svg');
+  background-image: url('/public/media/logos/cream/Logo-full-3d.svg');
   background-position: center;
-  background-size: auto;
+  background-size: cover;
   background-repeat: no-repeat;
-  color: #f3f3f3;
+  color: #fffdd0;
   position: absolute;
   height: 200px;
   width: 200px;
@@ -109,8 +109,7 @@
   display: block;
   justify-content: center;
   align-items: center;
-  height: 500px;
-  left: 0;
+  height: 400px;
 }
 
 .navbar-menu {
@@ -130,7 +129,7 @@
 }
 
 .navbar-links {
-  color: #f3f3f3;
+  color: #fffdd0;
   display: flex;
   justify-content: end;
   text-decoration: none;
@@ -141,16 +140,16 @@
 }
 
 .navbar-links:hover {
-  background-color: #f3f3f330;
+  background-color: #fffdd030;
 }
 
 @media screen and (max-width: 1280px) {
   .menu-icon span {
-    background-color: #CE8C8A;
+    background-color: #0000ff;
   }
 
   .menu-icon.active span {
-    background-color: #f3f3f3;
+    background-color: #fffdd0;
   }
 
   .navbar-background, .navbar-container {
@@ -180,15 +179,17 @@
   }
 
   .navbar-logo {
-    background-image: url('/public/images/logos/bob_logo_text_red.svg');
+    background-image: url('/public/media/logos/blue/Logo-full-3d.svg');
     top: 8px;
-    height: 140px;
-    width: 140px;
+    left: 10px;
+    height: 150px;
+    width: 300px;
   }
 
   .navbar-logo.active {
-    background-image: url('/public/images/logos/bob_logo_text_light.svg');
+    background-image: url('/public/media/logos/cream/Logo-full-3d.svg');
     top: 0;
+    left: 28px;
     height: 200px;
     width: 200px;
   }
