@@ -116,18 +116,27 @@
 
 .navbar-menu-items {
   list-style: none;
+  transition: all 0.2s ease-out;
 }
 
 .navbar-menu-items li {
-  padding: 25px 25px;
+  padding: 25px 0 25px 25px;
   text-align: right;
+  pointer-events: none;
 }
 
 .navbar-menu-items a {
   color: #fffdd0;
   text-decoration: none;
-  height: 100%;
+  padding: 25px 25px 25px 110px;
   font-size: x-large;
+  pointer-events: auto;
+}
+
+.navbar-menu-items li:hover {
+  background-color: #fffdd040;
+  cursor: pointer;
+  transition: all 0.2s ease-out;
 }
 
 .navbar-blur {
