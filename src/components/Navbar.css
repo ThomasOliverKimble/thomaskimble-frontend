@@ -146,9 +146,11 @@
   height: 100%;
   width: 100%;
   z-index: 1;
-  backdrop-filter: none;
+  backdrop-filter: blur(5px) opacity(0);
+  background-color: #fffdd040;
   visibility: hidden;
   opacity: 0;
+  transition: all 0.4s ease-out;
 }
 
 @media screen and (max-width: 1280px) {
@@ -219,7 +221,7 @@
   }
 
   .navbar-blur.active {
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(5px) opacity(1);
     visibility: visible;
     opacity: 1;
   }
