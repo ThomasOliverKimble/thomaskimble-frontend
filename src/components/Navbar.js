@@ -1,33 +1,41 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import './Navbar.css';
 
 function Navbar() {
-  const [click, setClick] = useState(false);
+  const [navbarClick, setNavbarClick] = useState(false);
+  const [scrollPosition, setScrollPosition] = useState(false);
 
-  const navbarHandler = () => setClick(!click);
+  const handleNavbarClick = () => setNavbarClick(!navbarClick);
+  const handleScroll = () => setScrollPosition(window.scrollY);
+
+  useEffect(() => {
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   return (
     <>
       <nav className='navbar'>
-        <div className={'navbar-hamburger ' + (click ? 'active' : '')} onClick={navbarHandler}>
+        <div className={'navbar-top ' + (scrollPosition != 0 ? 'scroll' : '')}/>
+        <div className={'navbar-hamburger ' + (navbarClick ? 'active' : '')} onClick={handleNavbarClick}>
           <span></span>
           <span></span>
           <span></span>
         </div>
-        <div className={'navbar-logo ' + (click ? 'active' : '')}>
-          <div className={'navbar-logo-svg navbar-logo-cream ' + (click ? 'active' : '')}/>
-          <div className={'navbar-logo-svg navbar-logo-blue ' + (click ? 'active' : '')}/>
+        <div className={'navbar-logo ' + (navbarClick ? 'active' : '')}>
+          <div className={'navbar-logo-svg navbar-logo-cream ' + (navbarClick ? 'active' : '')}/>
+          <div className={'navbar-logo-svg navbar-logo-blue ' + (navbarClick ? 'active' : '')}/>
         </div>
-        <div className={'navbar-background ' + (click ? 'active' : '')} />
-        <div className={'navbar-menu ' + (click ? 'active' : '')} >
+        <div className={'navbar-background ' + (navbarClick ? 'active' : '')} />
+        <div className={'navbar-menu ' + (navbarClick ? 'active' : '')} >
           <ul className='navbar-menu-items'>
-            <li><Link onClick={navbarHandler} to='/'>Home</Link></li>
-            <li><Link onClick={navbarHandler} to='/projects'>Projects</Link></li>
-            <li><Link onClick={navbarHandler} to='/about'>About</Link></li>
+            <li><Link onClick={handleNavbarClick} to='/'>Home</Link></li>
+            <li><Link onClick={handleNavbarClick} to='/projects'>Projects</Link></li>
+            <li><Link onClick={handleNavbarClick} to='/about'>About</Link></li>
           </ul>
         </div>
-        <div className={'navbar-blur ' + (click ? 'active' : '')}></div>
+        <div className={'navbar-blur ' + (navbarClick ? 'active' : '')}></div>
       </nav>
     </>
   );

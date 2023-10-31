@@ -1,21 +1,34 @@
 .hero {
-  position: absolute;
-  width: calc(100% - 250px);
-  height: calc(100% - 200px);
-  max-height: 1024px;
-  padding: 100px;
+  position: relative;
+  width: 100%;
+  height: auto;
+  min-height: 350px;
+  top: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: stretch;
+  transition: all 0.4s ease-in-out;
 }
 
 .hero-left {
-  position: relative;
   width: 50%;
-  left: 0;
+  flex-grow: 1;
+  padding: 25px;
+  transition: all 0.2s ease-in-out;
 }
 
 .hero-right {
-  position: relative;
   width: 50%;
-  left: 50%;
+  flex-grow: 1;
+  padding: 25px;
+  transition: all 0.2s ease-in-out;
+}
+
+.hero-text {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
 }
 
 .hero-title {
@@ -25,21 +38,21 @@
 
 .hero-description {
   padding: 10px;
-  text-align: justify;
+  text-align: left;
 }
 
 h1 {
   font-size: 64px;
   font-weight: 700;
   font-family: 'Archivo', sans-serif;
-  color: blue;
+  color: #0000FF;
 }
 
 h2 {
   font-size: 24px;
   font-weight: 400;
   font-family: 'Robot', sans-serif;
-  color: blue;
+  color: #0000FF;
 }
 
 .text-inline {
@@ -51,53 +64,53 @@ h2 {
 }
 
 .text-strike {
-  transition: all 0.2s ease-out;
+  transition: all 0.2s ease-in-out;
   text-decoration: line-through;
   text-decoration-color: transparent;
 }
 
 .text-strike:hover {
-  text-decoration-color: blue;
+  text-decoration-color: #0000FF;
 }
 
-.blur {
-  position: absolute;
-  width: 45px;
-  height: 30px;
-  margin-left: 5px;
-  z-index: 2;
-  transition: all 0.2s ease-out;
+.text-blur {
+  color: #0000FF;
+  text-shadow: none;
+  transition: all 0.2s ease-in-out;
 }
 
-.blur:hover {
-  backdrop-filter: blur(1.2px) opacity(1);
+.text-blur:hover {
+  color: transparent;
+  text-shadow: 0 0 5px #0000FF;
 }
 
 @media screen and (max-width: 1280px) {
   .hero {
     width: 100%;
-    height: 100%;
-    padding: 10px;
-    top: 150px;
-  }
-
-  .hero-description {
-    padding: 10px;
-    text-align: left;
+    transform: translateY(150px);
   }
 }
 
-@media screen and (max-width: 640px) {
+@media screen and (max-width: 700px) {
+  .hero {
+    flex-direction:column;
+    height: auto;
+  }
+
   .hero-left {
-    position: relative;
     width: 100%;
-    left: 0;
+    padding: 15px;
   }
 
   .hero-right {
-    position: relative;
     width: 100%;
-    left: 0;
+    padding: 15px;
+  }
+
+  .hero-text {
+    position: relative;
+    top: 0;
+    transform: none;
   }
 
   h1 {

@@ -1,9 +1,21 @@
 .navbar {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   height: 100%;
-  width: 250px;
+  z-index: 4;
+}
+
+.navbar-top {
+  position: fixed;
+  width: 100%;
+  height: 150px;
+  top: 0;
+  left: 0;
+  background-color: #FFFDD0;
+  border-bottom:  none;
+  transform: translateY(-155px);
+  transition: transform 0.4s ease-in-out;
 }
 
 .navbar-hamburger {
@@ -26,7 +38,7 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background-color: blue;
+  background-color: #0000FF;
   transition: all 0.4s;
 }
 
@@ -68,7 +80,7 @@
   left: 25px;
   cursor: pointer;
   z-index: 3;
-  transition: all 0.4s ease-out;
+  transition: all 0.4s ease-in-out;
 }
 
 .navbar-logo-svg {
@@ -78,29 +90,29 @@
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
-  transition: all 0.2s ease-out;
+  transition: all 0.2s ease-in-out;
 }
 
 .navbar-logo-cream {
   background-image: url("/public/media/logos/cream/Logo-full-3d.svg");
   visibility: visible;
   opacity: 1;
-  transition: all 0.2s ease-out;
+  transition: all 0.2s ease-in-out;
 }
 
 .navbar-logo-blue {
   background-image: url("/public/media/logos/blue/Logo-full-3d.svg");
   visibility: hidden;
   opacity: 0;
-  transition: all 0.4s ease-out;
+  transition: all 0.4s ease-in-out;
 }
 
 .navbar-background {
   position: absolute;
   height: 100%;
-  width: 100%;
-  background-color: blue;
-  transition: all 0.4s ease-out;
+  width: 250px;
+  background-color: #0000FF;
+  transition: all 0.4s ease-in-out;
   z-index: 2;
 }
 
@@ -109,14 +121,18 @@
   visibility: visible;
   opacity: 1;
   height: auto;
-  width: 100%;
+  width: 250px;
   top: 160px;
   z-index: 2;
+  transition-property: all;
+  transition-duration: 0.2s;
+  transition-timing-function: ease-in-out;
+  transition-delay: 0.2s;
 }
 
 .navbar-menu-items {
   list-style: none;
-  transition: all 0.2s ease-out;
+  transition: all 0.2s ease-in-out;
 }
 
 .navbar-menu-items li {
@@ -136,7 +152,7 @@
 .navbar-menu-items li:hover {
   background-color: #fffdd040;
   cursor: pointer;
-  transition: all 0.2s ease-out;
+  transition: all 0.2s ease-in-out;
 }
 
 .navbar-blur {
@@ -150,7 +166,7 @@
   background-color: #fffdd040;
   visibility: hidden;
   opacity: 0;
-  transition: all 0.4s ease-out;
+  transition: all 0.4s ease-in-out;
 }
 
 @media screen and (max-width: 1280px) {
@@ -158,6 +174,16 @@
   .navbar-hamburger {
     visibility: visible;
     opacity: 1;
+  }
+
+  .navbar-top {
+    transform: translateY(0);
+    border-bottom: none;
+  }
+
+  /* When scrolled */
+  .navbar-top.scroll {
+    border-bottom: medium solid blue;
   }
 
   /* Navbar not active */
@@ -180,6 +206,7 @@
   .navbar-menu {
     visibility: hidden;
     opacity: 0;
+    transition: none;
   }
 
   .navbar-background {
@@ -210,7 +237,7 @@
   .navbar-menu.active {
     transition-property: all;
     transition-duration: 0.2s;
-    transition-timing-function: ease-out;
+    transition-timing-function: ease-in-out;
     transition-delay: 0.2s;
     visibility: visible;
     opacity: 1;
