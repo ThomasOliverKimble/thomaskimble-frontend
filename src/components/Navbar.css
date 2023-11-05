@@ -1,3 +1,7 @@
+.disable-scroll {
+  overflow-y: hidden;
+}
+
 .navbar {
   position: fixed;
   top: 0;
@@ -6,31 +10,55 @@
   z-index: 4;
 }
 
-.navbar-top {
+.navbar-top-background {
   position: fixed;
   width: 100%;
   height: 150px;
   top: 0;
   left: 0;
   background-color: #FFFDD0;
-  border-bottom:  none;
-  transform: translateY(-155px);
-  transition: transform 0.4s ease-in-out;
+  transform: translateY(-100%);
+  transition: all 0.4s;
+  z-index: -1;
 }
 
-.navbar-hamburger {
+.navbar-top-border {
+  position: fixed;
+  width: 100%;
+  height: 3px;
+  top: 150px;
+  left: 0;
+  background-color: #0000FF;
+  transform: translateX(-100%);
+  transition: all 0.4s;
+  z-index: -1;
+}
+
+.navbar-top-container {
+  position: absolute;
+  width: 200px;
+  height: 100px;
+  top: 35px;
+  left: 30px;
+  transform: translate(0 0) scale(1);
+  transition: all 0.4s;
+  z-index: 4;
+}
+
+.navbar-top-container-hamburger {
   position: absolute;
   height: 40px;
   width: 40px;
-  top: 25px;
-  left: 25px;
+  top: 0;
+  left: 0;
+  margin: 5px;
   cursor: pointer;
   visibility: hidden;
   opacity: 0;
   z-index: 4;
 }
 
-.navbar-hamburger span {
+.navbar-top-container-hamburger span {
   position: absolute;
   width: 100%;
   height: 4px;
@@ -42,48 +70,49 @@
   transition: all 0.4s;
 }
 
-.navbar-hamburger span:nth-of-type(1) {
+.navbar-top-container-hamburger span:nth-of-type(1) {
   visibility: visible;
   opacity: 1;
 }
 
-.navbar-hamburger span:nth-of-type(2) {
+.navbar-top-container-hamburger span:nth-of-type(2) {
   top: calc(50% - 10px);
 }
 
-.navbar-hamburger span:nth-of-type(3) {
+.navbar-top-container-hamburger span:nth-of-type(3) {
   top: calc(50% + 10px);
 }
 
-.navbar-hamburger.active span:nth-of-type(1) {
+.navbar.active .navbar-top-container-hamburger span:nth-of-type(1) {
   visibility: hidden;
   opacity: 0;
 }
 
-.navbar-hamburger.active span:nth-of-type(2) {
+.navbar.active .navbar-top-container-hamburger span:nth-of-type(2) {
   transform: rotateZ(45deg);
   top: 45%;
   left: calc(50% - 19px);
 }
 
-.navbar-hamburger.active span:nth-of-type(3) {
+.navbar.active .navbar-top-container-hamburger span:nth-of-type(3) {
   transform: rotateZ(-45deg);
   top: 45%;
   left: calc(50% - 19px);
 }
 
-.navbar-logo {
+.navbar-top-container-logo {
   position: absolute;
-  height: 100px;
-  width: 200px;
-  top: 35px;
-  left: 25px;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
   cursor: pointer;
   z-index: 3;
-  transition: all 0.4s ease-in-out;
+  transition: all 0.4s;
+  transform-origin: top left;
 }
 
-.navbar-logo-svg {
+.navbar-top-container-logo-svg {
   position: absolute;
   height: 100%;
   width: 100%;
@@ -93,15 +122,22 @@
   transition: all 0.2s ease-in-out;
 }
 
-.navbar-logo-cream {
+.navbar-top-container-logo-cream {
   background-image: url("/public/media/logos/cream/Logo-full-3d.svg");
   visibility: visible;
   opacity: 1;
   transition: all 0.2s ease-in-out;
 }
 
-.navbar-logo-blue {
+.navbar-top-container-logo-blue {
   background-image: url("/public/media/logos/blue/Logo-full-3d.svg");
+  visibility: hidden;
+  opacity: 0;
+  transition: all 0.4s ease-in-out;
+}
+
+.navbar-top-container-logo-blue-no-text {
+  background-image: url("/public/media/logos/blue/Logo-full-3d-hidden.svg");
   visibility: hidden;
   opacity: 0;
   transition: all 0.4s ease-in-out;
@@ -171,34 +207,26 @@
 
 @media screen and (max-width: 1280px) {
   /* Always */
-  .navbar-hamburger {
+  .navbar-top-container-hamburger {
     visibility: visible;
     opacity: 1;
   }
 
-  .navbar-top {
+  .navbar-top-background {
     transform: translateY(0);
-    border-bottom: none;
-  }
-
-  /* When scrolled */
-  .navbar-top.scroll {
-    border-bottom: medium solid blue;
   }
 
   /* Navbar not active */
-  .navbar-logo {
-    transform: scale(1.15);
-    top: 25px;
-    left: 30px;
+  .navbar-top-container-logo {
+    transform: scale(1.2);
   }
 
-  .navbar-logo-cream {
+  .navbar-top-container-logo-cream {
     visibility: hidden;
     opacity: 0;
   }
 
-  .navbar-logo-blue {
+  .navbar-top-container-logo-blue {
     visibility: visible;
     opacity: 1;
   }
@@ -214,27 +242,29 @@
   }
 
   /* Navbar active */
-  .navbar-hamburger.active span {
+  .navbar-top-container {
+    transform: translateY(-10px);
+  }
+
+  .navbar.active .navbar-top-container-hamburger span {
     background-color: #fffdd0;
   }
 
-  .navbar-logo.active {
+  .navbar.active .navbar-top-container-logo {
     transform: scale(1);
-    top: 35px;
-    left: 25px;
   }
 
-  .navbar-logo-cream.active {
+  .navbar.active .navbar-top-container-logo-cream {
     visibility: visible;
     opacity: 1;
   }
 
-  .navbar-logo-blue.active {
+  .navbar.active .navbar-top-container-logo-blue {
     visibility: hidden;
     opacity: 0;
   }
 
-  .navbar-menu.active {
+  .navbar.active .navbar-menu {
     transition-property: all;
     transition-duration: 0.2s;
     transition-timing-function: ease-in-out;
@@ -243,13 +273,69 @@
     opacity: 1;
   }
 
-  .navbar-background.active {
+  .navbar.active .navbar-background {
     transform: translateX(0);
   }
 
-  .navbar-blur.active {
+  .navbar.active .navbar-blur {
     backdrop-filter: blur(5px) opacity(1);
     visibility: visible;
     opacity: 1;
+  }
+
+  /* When scrolled */
+  .navbar.scroll .navbar-top-border {
+    transform: translateX(0);
+  }
+
+  .navbar.scroll .navbar-top-container-logo {
+    transform: scale(1);
+  }
+}
+
+@media screen and (max-width: 700px) {
+  /* Always */
+  .navbar-top-container {
+    top: 25px;
+    left: 20px;
+  }
+
+  .navbar-top-background {
+    height: 80px;
+  }
+
+  .navbar-top-border {
+    top: 80px;
+  }
+
+  /* Navbar active */
+  .navbar.active .navbar-top-container-logo {
+    left: 10px;
+    top: 10px;
+    transform: scale(1);
+  }
+
+  /* When scrolled */
+  .navbar.scroll .navbar-top-container-logo {
+    left: 25px;
+    top: 0;
+    transform: scale(0.5);
+  }
+
+  .navbar.scroll .navbar-top-container-logo-blue {
+    visibility: hidden;
+    opacity: 0;
+  }
+
+  .navbar.scroll .navbar-top-container-logo-blue-no-text {
+    visibility: visible;
+    opacity: 1;
+  }
+
+  /* When scrolled and active*/
+  .navbar.active.scroll .navbar-top-container-logo {
+    left: 10px;
+    top: 10px;
+    transform: scale(1);
   }
 }
