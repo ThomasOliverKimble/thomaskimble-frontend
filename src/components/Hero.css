@@ -1,0 +1,24 @@
+.text-inline {
+  display: inline;
+}
+
+.text-strike {
+  transition: all 0.2s ease-in-out;
+  text-decoration: line-through;
+  text-decoration-color: transparent;
+}
+
+.text-strike:hover {
+  text-decoration-color: #0000FF;
+}
+
+.text-blur {
+  color: #0000FF;
+  text-shadow: none;
+  transition: all 0.2s ease-in-out;
+}
+
+.text-blur:hover {
+  color: transparent;
+  text-shadow: 0 0 5px #0000FF;
+}

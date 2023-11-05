@@ -7,19 +7,23 @@
 }
 
 body {
-  background-color: #fffdd0;
-  color: #1a1a1a;
+  background-color: #FFFDD0;
+  margin-top: 0;
   margin-left: 250px;
   transition: all 0.4s ease-in-out;
   overflow-x: hidden;
-}
-
-h1 {
-  color: #0000FF;
 }
 
 @media screen and (max-width: 1280px) {
   body {
     margin-left: 0;
   }
+}
+
+h1 {
+  font-family: 'Archivo', sans-serif;
+}
+
+p {
+  font-family: 'Roboto', sans-serif;
 }

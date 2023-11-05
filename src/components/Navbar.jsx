@@ -31,21 +31,21 @@ function Navbar() {
 
   return (
     <>
-      <nav className={'navbar ' + (navbarClick ? 'active ' : '') + (scrollPosition !== 0 ? 'scroll' : '')}>
+      <nav className={'navbar ' + (navbarClick ? 'active ' : '') + (scrollPosition > 5 ? 'scroll' : '')}>
         <div className='navbar-top'>
-          <div className={'navbar-top-background '}/>
-          <div className={'navbar-top-border '}/>
-          <div className='navbar-top-container'>
-            <div className={'navbar-top-container-hamburger '} onClick={handleNavbarClick}>
-              <span></span>
-              <span></span>
-              <span></span>
-            </div>
-            <div className='navbar-top-container-logo'>
-              <div className='navbar-top-container-logo-svg navbar-top-container-logo-blue-no-text'></div>
-              <div className='navbar-top-container-logo-svg navbar-top-container-logo-cream'/>
-              <div className='navbar-top-container-logo-svg navbar-top-container-logo-blue'/>
-            </div>
+          <div className='navbar-top-background'/>
+          <div className='navbar-top-border'/>
+        </div>
+        <div className='navbar-container'>
+          <div className={'navbar-container-hamburger '} onClick={handleNavbarClick}>
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+          <div className='navbar-container-logo'>
+            <div className='navbar-container-logo-svg navbar-container-logo-blue-no-text'></div>
+            <div className='navbar-container-logo-svg navbar-container-logo-cream'/>
+            <div className='navbar-container-logo-svg navbar-container-logo-blue'/>
           </div>
         </div>
         <div className='navbar-background'/>
