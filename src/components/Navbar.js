@@ -16,26 +16,22 @@ function Navbar() {
   }
   const handleScroll = () => setScrollPosition(window.scrollY);
 
-  const checkWidth = () => {
-    document.body.style.overflow = "auto"
-    if (!navbarClick) {
-      setNavbarClick(navbarClick);
-    }
-  }
-
   useEffect(() => {
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  useEffect(() => {
-    window.addEventListener('resize', checkWidth);
-    return () => window.removeEventListener('resize', checkWidth);
-  }, []);
+  function deactivateNavbar() {
+    document.body.style.overflow = "auto"
+    if (!navbarClick) {
+      setNavbarClick(navbarClick);
+    }
+  }
+  window.addEventListener('resize', deactivateNavbar);
 
   return (
     <>
-      <nav className={'navbar ' + (navbarClick ? 'active ' : '') + (scrollPosition != 0 ? 'scroll' : '')}>
+      <nav className={'navbar ' + (navbarClick ? 'active ' : '') + (scrollPosition !== 0 ? 'scroll' : '')}>
         <div className='navbar-top'>
           <div className={'navbar-top-background '}/>
           <div className={'navbar-top-border '}/>
