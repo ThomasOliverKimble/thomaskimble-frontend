@@ -9,7 +9,7 @@
 .navbar-top-background {
   position: fixed;
   background-color: #FFFDD0;
-  height: 145px;
+  height: 140px;
   width: 100%;
   visibility: hidden;
   opacity: 0;
@@ -22,10 +22,10 @@
 .navbar-top-border {
   position: fixed;
   background-color: #0000FF;
-  top: 145px;
+  top: 140px;
   height: 2px;
   width: 100%;
-  transform: translateX(-100%);
+  transform: translateX(100%);
   transition: all 0.4s;
 }
 
@@ -33,17 +33,15 @@
   position: fixed;
   height: 145px;
   width: 100%;
-  top: 35px;
-  left: 25px;
+  margin: 10px;
   z-index: 3;
+  padding: 10px 15px;
 }
 
 .navbar-container-hamburger {
   position: absolute;
   height: 40px;
   width: 40px;
-  top: 0;
-  left: 0;
   margin: 5px;
   cursor: pointer;
   z-index: 4;
@@ -96,10 +94,11 @@
 
 .navbar-container-logo {
   position: absolute;
-  width: 200px;
-  height: 100px;
-  top: 0;
-  left: 0;
+  width: 250px;
+  height: 150px;
+  top: 40px;
+  left: -25px;
+  transform: scale(1);
   cursor: pointer;
   z-index: 3;
   transition: all 0.4s;
@@ -113,28 +112,66 @@
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
-  transition: all 0.2s ease-in-out;
 }
 
-.navbar-container-logo-cream {
-  background-image: url("/public/media/logos/cream/Logo-full-3d.svg");
+.navbar-container-logo-creme-blob {
+  background-image: url("/public/media/logos/creme/logo_blob.svg");
+  visibility: hidden;
+  opacity: 0;
+}
+
+.navbar-container-logo-blue-blob {
+  background-image: url("/public/media/logos/blue/logo_blob.svg");
+  visibility: hidden;
+  opacity: 0;
+}
+
+.navbar-container-logo-creme-tk {
+  background-image: url("/public/media/logos/creme/logo_tk.svg");
+  visibility: hidden;
+  opacity: 0;
+}
+
+.navbar-container-logo-blue-tk {
+  background-image: url("/public/media/logos/blue/logo_tk.svg");
+  visibility: hidden;
+  opacity: 0;
+}
+
+.navbar-container-logo-creme-md-blob {
+  background-image: url("/public/media/logos/creme/logo_md_blob.svg");
   visibility: visible;
   opacity: 1;
-  transition: all 0.2s ease-in-out;
 }
 
-.navbar-container-logo-blue {
-  background-image: url("/public/media/logos/blue/Logo-full-3d.svg");
+.navbar-container-logo-blue-md-blob {
+  background-image: url("/public/media/logos/blue/logo_md_blob.svg");
   visibility: hidden;
   opacity: 0;
-  transition: all 0.4s ease-in-out;
 }
 
-.navbar-container-logo-blue-no-text {
-  background-image: url("/public/media/logos/blue/Logo-full-3d-hidden.svg");
+.navbar-container-logo-creme-md-tk {
+  background-image: url("/public/media/logos/creme/logo_md_tk.svg");
   visibility: hidden;
   opacity: 0;
-  transition: all 0.4s ease-in-out;
+}
+
+.navbar-container-logo-blue-md-tk {
+  background-image: url("/public/media/logos/blue/logo_md_tk.svg");
+  visibility: visible;
+  opacity: 1;
+}
+
+.navbar-container-logo-creme-md-text {
+  background-image: url("/public/media/logos/creme/logo_md_text.svg");
+  visibility: hidden;
+  opacity: 0;
+}
+
+.navbar-container-logo-blue-md-text {
+  background-image: url("/public/media/logos/blue/logo_md_text.svg");
+  visibility: hidden;
+  opacity: 0;
 }
 
 .navbar-background {
@@ -152,7 +189,7 @@
   opacity: 1;
   height: auto;
   width: 250px;
-  top: 160px;
+  top: 230px;
   z-index: 2;
   transition-property: all;
   transition-duration: 0.2s;
@@ -166,7 +203,7 @@
 }
 
 .navbar-menu-items li {
-  padding: 25px 0 25px 25px;
+  padding: 20px 0 20px 25px;
   text-align: right;
   pointer-events: none;
 }
@@ -214,15 +251,26 @@
 
   /* Navbar not active */
   .navbar-container-logo {
-    transform: scale(1.2);
+    top: -20px;
+    left: 7px;
+    transform: scale(1.15);
   }
 
-  .navbar-container-logo-cream {
-    visibility: hidden;
-    opacity: 0;
+  .navbar-container-logo-blue-md-text {
+    visibility: visible;
+    opacity: 1;
+    transition-property: all;
+    transition-duration: 0.2s;
+    transition-timing-function: ease-in-out;
+    transition-delay: 0.2s;
   }
 
-  .navbar-container-logo-blue {
+  .navbar-container-logo-blue-md-tk {
+    visibility: visible;
+    opacity: 1;
+  }
+
+  .navbar-container-logo-creme-md-blob {
     visibility: visible;
     opacity: 1;
   }
@@ -238,26 +286,30 @@
   }
 
   /* Navbar active */
-  .navbar-container {
-    transform: translateY(-10px);
-  }
-
   .navbar.active .navbar-container-hamburger span {
     background-color: #FFFDD0;
   }
 
   .navbar.active .navbar-container-logo {
+    top: 50px;
+    left: -25px;
     transform: scale(1);
   }
 
-  .navbar.active .navbar-container-logo-cream {
+  .navbar.active .navbar-container-logo-blue-md-text {
+    visibility: hidden;
+    opacity: 0;
+    transition: none;
+  }
+
+  .navbar.active .navbar-container-logo-blue-md-tk {
     visibility: visible;
     opacity: 1;
   }
 
-  .navbar.active .navbar-container-logo-blue {
-    visibility: hidden;
-    opacity: 0;
+  .navbar.active .navbar-container-logo-creme-md-blob {
+    visibility: visible;
+    opacity: 1;
   }
 
   .navbar.active .navbar-menu {
@@ -289,7 +341,7 @@
   }
 }
 
-@media screen and (max-width: 700px) {
+@media screen and (max-width: 640px) {
   /* Always */
   .navbar-top-background {
     height: 80px;
@@ -301,13 +353,33 @@
   }
 
   .navbar-container {
-    top: 15px;
-    left: 10px;
+    margin: 4px;
   }
 
-  .navbar-container-hamburger {
-    top: 5px;
-    left: 3px;
+  .navbar-container-logo {
+    top: 10px;
+    left: calc(50% - 110px);
+    transform: scale(0.7);
+  }
+
+  .navbar-container-logo-blue-md-text {
+    visibility: hidden;
+    opacity: 0;
+  }
+
+  .navbar-container-logo-blue-md-tk {
+    visibility: hidden;
+    opacity: 0;
+  }
+
+  .navbar-container-logo-creme-md-blob {
+    visibility: hidden;
+    opacity: 0;
+  }
+
+  .navbar-container-logo-blue-md-blob {
+    visibility: visible;
+    opacity: 1;
   }
 
   /* Navbar active */
@@ -319,24 +391,25 @@
 
   /* When scrolled */
   .navbar.scroll .navbar-container-logo {
-    left: calc(50% - 100px);
-    transform: scale(0.7);
+    top: 6px;
+    left: calc(50% - 70px);
+    transform: scale(0.4);
   }
 
-  .navbar.scroll .navbar-container-logo-blue {
+  /* Navbar active and scroll*/
+  
+  .navbar.active .navbar-container-logo-blue-md-text {
     visibility: hidden;
     opacity: 0;
   }
 
-  .navbar.scroll .navbar-container-logo-blue-no-text {
-    visibility: visible;
-    opacity: 1;
+  .navbar.active .navbar-container-logo-blue-md-blob {
+    visibility: hidden;
+    opacity: 0;
   }
 
-  /* Navbar active and scroll*/
-  .navbar.active.scroll .navbar-container-logo {
-    top: 15px;
-    left: 10px;
-    transform: scale(1);
+  .navbar.active .navbar-container-logo-creme-md-blob {
+    visibility: visible;
+    opacity: 1;
   }
 }

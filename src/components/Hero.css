@@ -9,16 +9,16 @@
 }
 
 .text-strike:hover {
-  text-decoration-color: #0000FF;
+  text-decoration-color: #FFFDD0;
 }
 
 .text-blur {
-  color: #0000FF;
+  color: #FFFDD0;
   text-shadow: none;
   transition: all 0.2s ease-in-out;
 }
 
 .text-blur:hover {
   color: transparent;
-  text-shadow: 0 0 5px #0000FF;
+  text-shadow: 0 0 5px #FFFDD0;
 }

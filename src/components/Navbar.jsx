@@ -43,9 +43,16 @@ function Navbar() {
             <span></span>
           </div>
           <div className='navbar-container-logo'>
-            <div className='navbar-container-logo-svg navbar-container-logo-blue-no-text'></div>
-            <div className='navbar-container-logo-svg navbar-container-logo-cream'/>
-            <div className='navbar-container-logo-svg navbar-container-logo-blue'/>
+            <div className='navbar-container-logo-svg navbar-container-logo-creme-blob'></div>
+            <div className='navbar-container-logo-svg navbar-container-logo-blue-blob'></div>
+            <div className='navbar-container-logo-svg navbar-container-logo-creme-tk'></div>
+            <div className='navbar-container-logo-svg navbar-container-logo-blue-tk'></div>
+            <div className='navbar-container-logo-svg navbar-container-logo-creme-md-blob'></div>
+            <div className='navbar-container-logo-svg navbar-container-logo-blue-md-blob'></div>
+            <div className='navbar-container-logo-svg navbar-container-logo-creme-md-tk'></div>
+            <div className='navbar-container-logo-svg navbar-container-logo-blue-md-tk'></div>
+            <div className='navbar-container-logo-svg navbar-container-logo-creme-md-text'></div>
+            <div className='navbar-container-logo-svg navbar-container-logo-blue-md-text'></div>
           </div>
         </div>
         <div className='navbar-background'/>
@@ -54,6 +61,7 @@ function Navbar() {
             <li><Link onClick={handleNavbarClick} to='/'>Home</Link></li>
             <li><Link onClick={handleNavbarClick} to='/projects'>Projects</Link></li>
             <li><Link onClick={handleNavbarClick} to='/about'>About</Link></li>
+            <li><Link onClick={handleNavbarClick} to='/contact'>Contact</Link></li>
           </ul>
         </div>
         <div className='navbar-blur'></div>
