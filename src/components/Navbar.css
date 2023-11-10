@@ -160,7 +160,7 @@
   background-position: center;
   background-size: contain;
   background-repeat: no-repeat;
-  background-image: url("/public/media/logos/blue/text_thomaskimble.svg");
+  background-image: url("/public/media/text/blue/text_thomaskimble.svg");
 }
 
 
@@ -188,7 +188,7 @@
   background-position: center;
   background-size: contain;
   background-repeat: no-repeat;
-  background-image: url("/public/media/logos/creme/text_thomaskimble.svg");
+  background-image: url("/public/media/text/creme/text_thomaskimble.svg");
 }
 
 
@@ -395,3 +395,5 @@
     opacity: 0;
   }
 }
+
+/* TODO: Click on blur to leave navbar*/
