@@ -3,18 +3,18 @@ import { Link } from 'react-router-dom';
 import './Navbar.css';
 
 function Navbar() {
+  const [scrollPosition, setScrollPosition] = useState(0);
   const [navbarClick, setNavbarClick] = useState(false);
-  const [scrollPosition, setScrollPosition] = useState(false);
 
+  const handleScroll = () => setScrollPosition(window.scrollY);
   const handleNavbarClick = () => {
     setNavbarClick(!navbarClick);
     if (navbarClick) {
-      document.body.style.overflow = "auto"
+      document.body.classList.remove("no-scroll");
     } else {
-      document.body.style.overflow = "hidden"
+      document.body.classList.add("no-scroll");
     }
   }
-  const handleScroll = () => setScrollPosition(window.scrollY);
 
   useEffect(() => {
     window.addEventListener('scroll', handleScroll, { passive: true });
@@ -22,40 +22,35 @@ function Navbar() {
   }, []);
 
   function deactivateNavbar() {
-    document.body.style.overflow = "auto"
+    document.body.style.overflow = "auto";
     if (!navbarClick) {
       setNavbarClick(navbarClick);
     }
   }
+
   window.addEventListener('resize', deactivateNavbar);
 
   return (
     <>
       <nav className={'navbar ' + (navbarClick ? 'active ' : '') + (scrollPosition > 5 ? 'scroll' : '')}>
-        <div className='navbar-top'>
-          <div className='navbar-top-background'/>
-          <div className='navbar-top-border'/>
+        <div className='navbar-top'/>
+        <div className='navbar-top-border'/>
+        <div className='navbar-left'/>
+        <div className={'navbar-hamburger '} onClick={handleNavbarClick}>
+          <span></span>
+          <span></span>
+          <span></span>
         </div>
-        <div className='navbar-container'>
-          <div className={'navbar-container-hamburger '} onClick={handleNavbarClick}>
-            <span></span>
-            <span></span>
-            <span></span>
-          </div>
-          <div className='navbar-container-logo'>
-            <div className='navbar-container-logo-svg navbar-container-logo-creme-blob'></div>
-            <div className='navbar-container-logo-svg navbar-container-logo-blue-blob'></div>
-            <div className='navbar-container-logo-svg navbar-container-logo-creme-tk'></div>
-            <div className='navbar-container-logo-svg navbar-container-logo-blue-tk'></div>
-            <div className='navbar-container-logo-svg navbar-container-logo-creme-md-blob'></div>
-            <div className='navbar-container-logo-svg navbar-container-logo-blue-md-blob'></div>
-            <div className='navbar-container-logo-svg navbar-container-logo-creme-md-tk'></div>
-            <div className='navbar-container-logo-svg navbar-container-logo-blue-md-tk'></div>
-            <div className='navbar-container-logo-svg navbar-container-logo-creme-md-text'></div>
-            <div className='navbar-container-logo-svg navbar-container-logo-blue-md-text'></div>
-          </div>
+        <div className='navbar-logo'>
+          <div className='navbar-logo-svg navbar-logo-creme'/>
+          <div className='navbar-logo-svg navbar-logo-blue'/>
         </div>
-        <div className='navbar-background'/>
+        <div className='navbar-text'>
+          <div className='navbar-text-logo'/>
+        </div>
+        <div className='navbar-footer'>
+          <div className='navbar-footer-logo'/>
+        </div>
         <div className='navbar-menu'>
           <ul className='navbar-menu-items'>
             <li><Link onClick={handleNavbarClick} to='/'>Home</Link></li>
