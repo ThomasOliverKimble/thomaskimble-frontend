@@ -5,10 +5,18 @@ import Hero from '../Hero';
 function Home() {
   return (
     <>
-      <Hero></Hero>
-      <Hero></Hero>
+      <div className='page'>
+        <Hero></Hero>
+        <Hero></Hero>
+        <Hero></Hero>
+        <Hero></Hero>
+        <Hero></Hero>
+        <Hero></Hero>
+        <Hero></Hero>
+        <Hero></Hero>
+      </div>
     </>
   )
 }
 
-export default Home
+export default Home;
