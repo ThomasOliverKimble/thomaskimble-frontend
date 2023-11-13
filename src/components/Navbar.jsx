@@ -104,7 +104,7 @@ function Navbar() {
           </div>
         </div>
         <div id='navbar-blur' onClick={handleNavbarClick} className='absolute bg-[#FFFDD030] z-20 h-full w-full min-h-[640px] backdrop-blur-sm invisible opacity-0 [&.active]:visible [&.active]:opacity-100 transition duration-500 ease-in-out'/>
-        <span id='scrollbar' className='fixed z-0 -top-[calc(100%-6rem)] right-0 h-full w-2 min-h-[640px] bg-[#0000FF] md:w-3 xl:-top-full'></span>
+        <span id='scrollbar' className='fixed z-0 -top-[calc(100%-6rem)] sm:-top-[calc(100%-5rem)] xl:-top-full right-0 h-full w-2 md:w-3 min-h-[640px] bg-[#0000FF]'></span>
       </nav>
     </>
   );
