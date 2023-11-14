@@ -1,5 +1,5 @@
 /* Navbae hamburger css*/
-#navbar-hamburger span {
+#hamburger span {
   position: absolute;
   width: 100%;
   height: 0.25rem;
@@ -11,31 +11,31 @@
   transition: all 0.4s;
 }
 
-#navbar-hamburger span:nth-of-type(1) {
+#hamburger span:nth-of-type(1) {
   visibility: visible;
   opacity: 1;
 }
 
-#navbar-hamburger span:nth-of-type(2) {
+#hamburger span:nth-of-type(2) {
   top: calc(50% - 10px);
 }
 
-#navbar-hamburger span:nth-of-type(3) {
+#hamburger span:nth-of-type(3) {
   top: calc(50% + 10px);
 }
 
-#navbar.active #navbar-hamburger span:nth-of-type(1) {
+#hamburger.active span:nth-of-type(1) {
   visibility: hidden;
   opacity: 0;
 }
 
-#navbar.active #navbar-hamburger span:nth-of-type(2) {
+#hamburger.active span:nth-of-type(2) {
   transform: rotateZ(-45deg);
   top: 45%;
   left: calc(50% - 19px);
 }
 
-#navbar.active #navbar-hamburger span:nth-of-type(3) {
+#hamburger.active span:nth-of-type(3) {
   transform: rotateZ(45deg);
   top: 45%;
   left: calc(50% - 19px);
