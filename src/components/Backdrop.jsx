@@ -24,7 +24,7 @@ function Backdrop() {
 
   return (
     <>
-      <div id='backdrop' onClick={handleClick} className='fixed bg-[#FFFDD030] z-30 h-full w-full min-h-[40rem] backdrop-blur-sm invisible opacity-0 [&.active]:visible [&.active]:opacity-100 transition duration-500 ease-in-out'/>
+      <div id='backdrop' onClick={handleClick} className='fixed bg-[#FFFDD030] z-30 h-full w-full backdrop-blur-sm invisible opacity-0 [&.active]:visible [&.active]:opacity-100 transition duration-500 ease-in-out'/>
     </>
   );
 }

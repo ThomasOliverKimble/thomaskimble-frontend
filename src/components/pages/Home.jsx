@@ -6,20 +6,11 @@ function Home() {
   return (
     <>
       <div id='home-page' className='page'>
-        <div id="home-page-content" className='max-w-[1536px] m-auto'>
+        <div id="home-page-content" className='max-w-[1536px] m-auto pt-[6rem] xl:pt-0'>
+          <Hero></Hero>
           <Hero></Hero>
         </div>
       </div>
-      {/* <div className='page'>
-        <Hero></Hero>
-        <Hero></Hero>
-        <Hero></Hero>
-        <Hero></Hero>
-        <Hero></Hero>
-        <Hero></Hero>
-        <Hero></Hero>
-        <Hero></Hero>
-      </div> */}
     </>
   )
 }
