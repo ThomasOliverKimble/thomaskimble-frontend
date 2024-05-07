@@ -1,4 +1,4 @@
-/* Sidebar hamburger css*/
+/* Navigation hamburger css*/
 #hamburger span {
   position: absolute;
   width: 100%;
@@ -8,7 +8,7 @@
   left: 50%;
   transform: translate(-50%, -50%);
   background-color: #0000FF;
-  transition: all 0.4s;
+  transition: all 0.5s;
 }
 
 #hamburger span:nth-of-type(1) {

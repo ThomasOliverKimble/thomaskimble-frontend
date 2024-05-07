@@ -1,8 +1,7 @@
 import React, { useEffect } from 'react';
 import '../../App.css';
-import Hero from '../Hero';
 
-function Home() {
+function About() {
   useEffect(() => {
     document.title = "About - Thomas Kimble";
   }, []);
@@ -11,11 +10,10 @@ function Home() {
     <>
       <div id='about-page' className='page'>
         <div id="about-page-content" className='max-w-[1536px] m-auto pt-[6rem] 2xl:pt-0'>
-          <Hero></Hero>
         </div>
       </div>
     </>
   )
 }
 
-export default Home;
+export default About;

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { useUI } from '../contexts/UIContext';
+import { useUI } from '../../contexts/UIContext';
 
 function Sidebar() {
   const { toggleUI } = useUI();

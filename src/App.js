@@ -1,14 +1,8 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { UIProvider } from './contexts/UIContext';
-import Sidebar from './components/Sidebar';
-import Hamburger from './components/Hamburger';
-import Backdrop from './components/Backdrop';
-import Header from './components/Header';
-import Home from './components/pages/Home';
-import Projects from './components/pages/Projects';
-import About from './components/pages/About';
-import Contact from './components/pages/Contact';
+import { Sidebar, Hamburger, Backdrop, Header } from './components/navigation';
+import { Home, Projects, About, Contact } from './components/pages';
 
 function App() {
   return (
@@ -20,7 +14,6 @@ function App() {
         <Header />
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path='/projects' element={<Projects />} />
           <Route path='/projects' element={<Projects />} />
           <Route path='/about' element={<About />} />
           <Route path='/contact' element={<Contact />} />
