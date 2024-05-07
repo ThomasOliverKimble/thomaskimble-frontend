@@ -4,7 +4,8 @@ module.exports = {
     extend: {
       fontFamily: {
         'roboto': ['Roboto', 'sans-serif'],
-        'archivo': ['Archivo', 'sans-serif']
+        'archivo': ['Archivo', 'sans-serif'],
+        'open sans': ['Open Sans', 'sans-serif'],
       },
     },
   },
