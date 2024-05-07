@@ -44,13 +44,31 @@ export const UIProvider = ({ children }) => {
     });
   }, []);
 
-  const toggleUI = () => {
+  const toggleUI = useCallback(() => {
+    if (window.innerWidth >= 1536) {
+      return; // Do nothing if the screen is 2XL or larger
+    }
+
     setIsActive(current => {
       const newState = !current;
       updateElementsClass(newState);
       return newState;
     });
-  };
+  }, [updateElementsClass]);
+
+  useEffect(() => {
+    const handleResize = () => {
+      if (isActive) {
+        toggleUI();
+      }
+    };
+
+    window.addEventListener('resize', handleResize);
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, [isActive, toggleUI]);
 
   useEffect(() => {
     const handleScroll = () => {
