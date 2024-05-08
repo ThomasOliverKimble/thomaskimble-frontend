@@ -20,7 +20,7 @@ function ThemeChange() {
     }, 1000);
     setTimeout(() => {
       changeColor(newColor);
-    }, 500);
+    }, 300);
   };
 
   return (
@@ -31,7 +31,7 @@ function ThemeChange() {
       >
         <FontAwesomeIcon icon={faPaintBrush} />
       </button>
-      {swipe && <div className="color-swipe bg-primary"></div>}
+      {swipe && <div className="color-swipe bg-black"></div>}
     </>
   );
 }
