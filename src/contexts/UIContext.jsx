@@ -1,4 +1,10 @@
-import React, { createContext, useContext, useState, useCallback, useEffect } from 'react';
+import React, {
+  createContext,
+  useContext,
+  useState,
+  useCallback,
+  useEffect,
+} from "react";
 
 const UIContext = createContext();
 
@@ -12,13 +18,13 @@ const elementIds = [
   "sidebar-menu",
   "sidebar-text",
   "hamburger",
-  "backdrop"
+  "backdrop",
 ];
 
 const scrollToggleElements = [
   "header-background",
   "header-border",
-  "header-text"
+  "header-text",
 ];
 
 export const UIProvider = ({ children }) => {
@@ -26,7 +32,7 @@ export const UIProvider = ({ children }) => {
 
   const updateElementsClass = useCallback((add) => {
     document.body.classList.toggle("no-scroll", add);
-    elementIds.forEach(id => {
+    elementIds.forEach((id) => {
       const element = document.getElementById(id);
       if (element) {
         element.classList.toggle("active", add);
@@ -35,7 +41,7 @@ export const UIProvider = ({ children }) => {
   }, []);
 
   const updateScrollToggleElements = useCallback((add) => {
-    scrollToggleElements.forEach(id => {
+    scrollToggleElements.forEach((id) => {
       const element = document.getElementById(id);
       if (element) {
         element.classList.toggle("scroll", add);
@@ -49,7 +55,7 @@ export const UIProvider = ({ children }) => {
       return; // Do nothing if the screen is 2XL or larger
     }
 
-    setIsActive(current => {
+    setIsActive((current) => {
       const newState = !current;
       updateElementsClass(newState);
       return newState;
@@ -63,10 +69,10 @@ export const UIProvider = ({ children }) => {
       }
     };
 
-    window.addEventListener('resize', handleResize);
+    window.addEventListener("resize", handleResize);
 
     return () => {
-      window.removeEventListener('resize', handleResize);
+      window.removeEventListener("resize", handleResize);
     };
   }, [isActive, toggleUI]);
 
@@ -76,9 +82,9 @@ export const UIProvider = ({ children }) => {
       updateScrollToggleElements(shouldBeActive);
     };
 
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
     return () => {
-      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener("scroll", handleScroll);
     };
   }, [updateScrollToggleElements]);
 
