@@ -20,7 +20,7 @@ function ThemeChange() {
     }, 1000);
     setTimeout(() => {
       changeColor(newColor);
-    }, 100);
+    }, 500);
   };
 
   return (
