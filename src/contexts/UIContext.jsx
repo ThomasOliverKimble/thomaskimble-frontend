@@ -11,10 +11,11 @@ const UIContext = createContext();
 export const useUI = () => useContext(UIContext);
 
 const elementIds = [
+  "sidebar",
   "sidebar-background",
   "sidebar-logo",
   "sidebar-logo-container-creme",
-  "sidebar-logo-container-blue",
+  "sidebar-logo-container-color",
   "sidebar-menu",
   "sidebar-text",
   "hamburger",

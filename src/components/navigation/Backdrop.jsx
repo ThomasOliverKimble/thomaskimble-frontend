@@ -9,7 +9,7 @@ function Backdrop() {
       <div
         id="backdrop"
         onClick={toggleUI}
-        className="fixed bg-[#FFFDD030] z-30 h-full w-full backdrop-blur-sm invisible opacity-0 [&.active]:visible [&.active]:opacity-100 transition duration-500 ease-in-out"
+        className="fixed bg-fond_transparent z-20 h-full w-full backdrop-blur-sm invisible opacity-0 [&.active]:visible [&.active]:opacity-100 transition duration-500 ease-in-out"
       />
     </>
   );

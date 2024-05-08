@@ -1,3 +1,10 @@
+:root {
+  --primary: #0000FF;
+  --primary_highlight: #AAAAFF;
+  --fond: #FFFDD0;
+  --fond_transparent: #FFFDD030;
+}
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -7,7 +14,7 @@
 }
 
 body {
-  background-color: #FFFDD0;
+  background-color: var(--fond);
   overflow-x: hidden;
   overflow-y: scroll;
   position: absolute;
@@ -25,3 +32,19 @@ body.no-scroll {
 body.no-scroll #root {
   overflow-y: scroll;
 }
+
+.color-swipe {
+  position: fixed;
+  top: 0;
+  left: -100%;
+  width: 200vw;
+  height: 100vh;
+  z-index: 49;
+  animation: swipe 1s forwards;
+}
+
+@keyframes swipe {
+  from { left: -200%; }
+  to { left: 100%; }
+}
+
