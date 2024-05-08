@@ -1,16 +1,15 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { ColorProvider } from "./contexts/ColorContext";
-import { UIProvider } from "./contexts/UIContext";
+import { ThemeProvider, UIProvider } from "./contexts";
 import { Backdrop, Hamburger, Header, Logo, Sidebar } from "./components/navigation";
 import { About, Contact, Home, Projects } from "./components/pages";
-import ThemeChange from "./components/ThemeChange";
+import ThemeButton from "./components/ThemeButton";
 
 function App() {
   return (
-    <ColorProvider>
+    <ThemeProvider>
       <UIProvider>
-        <ThemeChange />
+        <ThemeButton />
         <Router>
           <Sidebar />
           <Hamburger />
@@ -25,7 +24,7 @@ function App() {
           </Routes>
         </Router>
       </UIProvider>
-    </ColorProvider>
+    </ThemeProvider>
   );
 }
 

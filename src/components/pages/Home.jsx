@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import "../../App.css";
 import Page from "./Page";
 import Hero from "../Hero";
-import FeaturedProject from "../FeaturedProject";
+// import FeaturedProject from "../FeaturedProject";
 
 const projectsJson = [
   {
@@ -33,6 +33,7 @@ const projectsJson = [
 
 function Home() {
   const [projects, setProjects] = useState([]);
+  console.log(projects)
 
   useEffect(() => {
     document.title = "Home - Thomas Kimble";
@@ -54,21 +55,19 @@ function Home() {
   }, []);
 
   return (
-    <>
-      <Page id="home-page">
-        <Hero></Hero>
-        {/* <div className="grid grid-cols-4 gap-4 p-4">
-          {projects.map((project) => (
-            <FeaturedProject
-              key={project.id}
-              name={project.name}
-              imagePath={project.imagePath}
-              title={project.title}
-            />
-          ))}
-        </div> */}
-      </Page>
-    </>
+    <Page id="home-page">
+      <Hero></Hero>
+      {/* <div className="grid grid-cols-4 gap-4 p-4">
+        {projects.map((project) => (
+          <FeaturedProject
+            key={project.id}
+            name={project.name}
+            imagePath={project.imagePath}
+            title={project.title}
+          />
+        ))}
+      </div> */}
+    </Page>
   );
 }
 
