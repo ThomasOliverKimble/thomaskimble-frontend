@@ -14,7 +14,7 @@ function Header() {
       <span id="header-background" className="absolute h-full bg-fond w-full" />
       <span
         id="header-border"
-        className="absolute top-[100%] h-[3px] w-full bg-primary invisible opacity-0 transition-opacity duration-500 ease-in-out [&.scroll]:visible [&.scroll]:opacity-100"
+        className="absolute top-[100%] h-[4px] w-full bg-primary invisible opacity-0 transition-opacity duration-500 ease-in-out [&.scroll]:visible [&.scroll]:opacity-100"
       />
       <div
         id="header-text"

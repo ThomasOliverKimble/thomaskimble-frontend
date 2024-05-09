@@ -6,7 +6,8 @@ const themeMap = {
   red: { color: "#FF0000", mediaPath: "red" },
   green: { color: "#008800", mediaPath: "green" },
   pink: { color: "#FF00FF", mediaPath: "pink" },
-  black: { color: "#000000", mediaPath: "black" },
+  orange: { color: "#FFBB00", mediaPath: "orange" },
+  purple: { color: "#9933EE", mediaPath: "purple" },
 };
 
 // Create a context for theme management with default values

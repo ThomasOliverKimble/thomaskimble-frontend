@@ -19,7 +19,7 @@ function ThemeButton() {
 
     setTimeout(() => {
       changeTheme(newTheme.color, newTheme.mediaPath);
-    }, 200);
+    }, 150);
 
     setTimeout(() => {
       setSwipe(false);
@@ -32,13 +32,20 @@ function ThemeButton() {
   return (
     <>
       <button
+        id="theme-button"
         onClick={toggleTheme}
         disabled={isDisabled}
-        className={`fixed bottom-5 right-5 z-50 font-bold py-2 px-4 rounded shadow transition-colors hover:bg-black ${isDisabled ? "opacity-70 bg-black" : "opacity-100 bg-primary"} text-white`}
+        className={`fixed bottom-5 right-5 z-50 font-bold py-2 px-4 rounded shadow transition-colors hover:bg-black ${isDisabled ? "opacity-70 bg-black" : "opacity-100 bg-primary"} text-fond`}
       >
         <FontAwesomeIcon icon={faPaintBrush} />
       </button>
-      {swipe && <div className="color-swipe" style={{ backgroundColor: nextTheme.color }}></div>}
+      {swipe && (
+        <div
+          id="theme-button-color-swipe"
+          className="color-swipe"
+          style={{ backgroundColor: nextTheme.color }}
+        ></div>
+      )}
     </>
   );
 }
