@@ -5,7 +5,7 @@ function FeaturedProject({ name, imagePath, title }) {
   return (
     <div
       id={`featured-project-${name}`}
-      className="flex w-96 h-40 border-4 border-primary rounded-sm"
+      className="flex flex-none w-96 h-40 border-4 border-primary rounded-sm"
     >
       <div
         id={`featured-project-${name}-image-container`}
@@ -13,15 +13,15 @@ function FeaturedProject({ name, imagePath, title }) {
       >
         <img
           src={imagePath}
-          alt={`${title}`}
+          alt={title}
           className="h-full w-full object-cover"
         />
       </div>
       <div
         id={`featured-project-${name}-title-container`}
-        className="w-2/5 bg-primary p-4 overflow-visible"
+        className="w-2/5 bg-primary p-4"
       >
-        <h2 className="text-fond font-extrabold text-4xl text-right whitespace-normal break-words">
+        <h2 className="text-fond font-extrabold text-4xl text-right break-words">
           {title}
         </h2>
       </div>
