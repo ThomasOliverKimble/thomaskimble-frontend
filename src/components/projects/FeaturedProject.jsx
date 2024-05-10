@@ -5,7 +5,7 @@ function FeaturedProject({ name, imagePath, title }) {
   return (
     <div
       id={`featured-project-${name}`}
-      className="flex flex-none w-96 h-40 border-4 border-primary rounded-sm"
+      className="flex flex-none w-96 h-40 border-4 border-primary rounded-sm mr-4 hover:cursor-pointer hover:bg-primary_highlight"
     >
       <div
         id={`featured-project-${name}-image-container`}

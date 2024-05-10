@@ -17,7 +17,7 @@ function ThemeButton() {
 
     setTimeout(() => {
       changeTheme(newTheme.color, newTheme.mediaPath);
-    }, 150);
+    }, 250);
 
     setTimeout(() => {
       setSwipe(false);

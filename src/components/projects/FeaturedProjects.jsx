@@ -2,6 +2,9 @@ import React, { useState, useEffect } from "react";
 import { useTheme } from "../../contexts/ThemeContext";
 import "../../App.css";
 import FeaturedProject from "./FeaturedProject";
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css"; 
+import "slick-carousel/slick/slick-theme.css";
 
 const projectsJson = [
   {
@@ -39,11 +42,6 @@ const projectsJson = [
 function FeaturedProjects() {
   const [projects, setProjects] = useState([]);
   const { mediaPath } = useTheme();
-  console.log(projects);
-
-  useEffect(() => {
-    document.title = "Home - Thomas Kimble";
-  }, []);
 
   useEffect(() => {
     async function fetchProjects() {
@@ -67,21 +65,33 @@ function FeaturedProjects() {
     fetchProjects();
   }, [mediaPath]);
 
-  return (
-    <div
-      id="featured-projects"
-      className="w-full flex overflow-x-scroll space-x-4 scroll-smooth no-scrollbar"
+  const settings = {
+    dots: false,
+    infinite: true,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 1,
+    speed: 5000,
+    pauseOnFocus: false, 
+    pauseOnHover: false,
+    variableWidth: true,
+    centerMode: true,
+    cssEase: 'linear',
+  };
 
-    >
+  return (
+    <Slider {...settings}>
       {projects.map((project) => (
-        <FeaturedProject
-          key={project.id}
-          name={project.name}
-          imagePath={project.imagePath}
-          title={project.title}
-        />
+        <div key={project.id}>
+          <FeaturedProject
+            name={project.name}
+            imagePath={project.imagePath}
+            title={project.title}
+          />
+        </div>
       ))}
-    </div>
+    </Slider>
   );
 }
 
