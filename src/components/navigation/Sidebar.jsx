@@ -9,15 +9,15 @@ function Sidebar() {
   return (
     <div
       id="sidebar"
-      className="fixed z-30 w-60 h-full min-h-[40rem] invisible transition-all duration-500 ease-in-out 2xl:visible [&.active]:visible"
+      className="fixed z-30 w-60 h-full min-h-[40rem] invisible transition-all duration-300 ease-in-out 2xl:visible [&.active]:visible"
     >
       <div
         id="sidebar-background"
-        className="absolute z-20 h-full w-full bg-primary -translate-x-full transition-all duration-500 ease-in-out 2xl:transform-none [&.active]:transform-none"
+        className="absolute z-20 h-full w-full bg-primary -translate-x-full transition-transform duration-300 ease-in-out 2xl:transform-none [&.active]:transform-none"
       />
       <nav
         id="sidebar-menu"
-        className="relative pt-60 z-30 w-full h-max invisible opacity-0 transition-opacity duration-200 delay-200 ease-in-out 2xl:visible 2xl:opacity-100 [&.active]:visible [&.active]:opacity-100"
+        className="relative pt-60 z-30 w-full h-max invisible opacity-0 transition-opacity duration-150 delay-150 ease-in-out 2xl:visible 2xl:opacity-100 [&.active]:visible [&.active]:opacity-100"
       >
         <ul
           id="sidebar-menu-items"
@@ -47,7 +47,7 @@ function Sidebar() {
       </nav>
       <div
         id="sidebar-text"
-        className="absolute z-30 bottom-0 h-fit w-full p-5 invisible opacity-0 transition-opacity duration-200 delay-200 ease-in-out 2xl:visible 2xl:opacity-100 [&.active]:visible [&.active]:opacity-100"
+        className="absolute z-30 bottom-0 h-fit w-full p-5 invisible opacity-0 transition-opacity duration-150 delay-150 ease-in-out 2xl:visible 2xl:opacity-100 [&.active]:visible [&.active]:opacity-100"
       >
         <img
           id="sidebar-text-logo"

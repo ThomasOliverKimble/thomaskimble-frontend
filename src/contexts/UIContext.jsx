@@ -21,7 +21,9 @@ const elementIds = [
   "sidebar-logo-container-color",
   "sidebar-menu",
   "sidebar-text",
-  "hamburger",
+  "hamburger-top",
+  "hamburger-middle",
+  "hamburger-bottom",
   "backdrop",
 ];
 

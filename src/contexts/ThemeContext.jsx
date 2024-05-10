@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState, useMemo } from "react";
+import React, { createContext, useContext, useState, useMemo, useEffect } from "react";
 
 // Map of theme colors and associated media paths
 const themeMap = {
@@ -25,18 +25,34 @@ export function useTheme() {
 
 // Provider component to wrap application components and provide theme context
 export const ThemeProvider = ({ children }) => {
-  const [primaryColor, setPrimaryColor] = useState("var(--primary)");
-  const [primaryHighlightColor, setPrimaryHighlightColor] = useState("var(--primary_highlight)");
-  const [mediaPath, setMediaPath] = useState("blue");
+  // Initialize state from localStorage or default
+  const initColor = localStorage.getItem("themeColor") || "var(--primary)";
+  const initHighlightColor = localStorage.getItem("themeHighlightColor") || "var(--primary_highlight)";
+  const initMediaPath = localStorage.getItem("themeMediaPath") || "blue";
 
-  // Function to update the theme
+  const [primaryColor, setPrimaryColor] = useState(initColor);
+  const [primaryHighlightColor, setPrimaryHighlightColor] = useState(initHighlightColor);
+  const [mediaPath, setMediaPath] = useState(initMediaPath);
+
+  useEffect(() => {
+    // Apply initial theme colors to CSS root variables
+    document.documentElement.style.setProperty("--primary", primaryColor);
+    document.documentElement.style.setProperty("--primary_highlight", primaryHighlightColor);
+  }, [primaryColor, primaryHighlightColor]);
+
   const changeTheme = (newColor, newMediaPath) => {
-    const newHighlightColor = newColor + "90"
+    const newHighlightColor = newColor + "90";  // Assuming you want a transparency of 90%
+    // Update CSS variables
     document.documentElement.style.setProperty("--primary", newColor);
     document.documentElement.style.setProperty("--primary_highlight", newHighlightColor);
     setPrimaryColor(newColor);
     setPrimaryHighlightColor(newHighlightColor);
     setMediaPath(newMediaPath);
+
+    // Save to localStorage
+    localStorage.setItem("themeColor", newColor);
+    localStorage.setItem("themeHighlightColor", newHighlightColor);
+    localStorage.setItem("themeMediaPath", newMediaPath);
   };
 
   // Function to retrieve a random theme that is different from the current theme
@@ -45,24 +61,19 @@ export const ThemeProvider = ({ children }) => {
     let newTheme;
     do {
       newTheme = themeMap[keys[Math.floor(Math.random() * keys.length)]];
-    } while (newTheme.color === currentColor); // Ensure the new theme is different
+    } while (newTheme.color === currentColor);
     return newTheme;
   };
 
-  // Memoize context values to prevent unnecessary re-renders
-  const value = useMemo(
-    () => ({
-      primaryColor,
-      primaryHighlightColor,
-      mediaPath,
-      changeTheme,
-      getRandomTheme,
-      themeMap,
-    }),
-    [primaryColor, primaryHighlightColor, mediaPath]
-  );
+  const value = useMemo(() => ({
+    primaryColor,
+    primaryHighlightColor,
+    mediaPath,
+    changeTheme,
+    getRandomTheme,
+    themeMap,
+  }), [primaryColor, primaryHighlightColor, mediaPath]);
 
-  // Provide the theme context to children components
   return (
     <ThemeContext.Provider value={value}>{children}</ThemeContext.Provider>
   );
