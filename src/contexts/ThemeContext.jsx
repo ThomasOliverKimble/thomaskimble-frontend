@@ -10,13 +10,7 @@ const themeMap = {
 };
 
 // Create a context for theme management with default values
-const ThemeContext = createContext({
-  primaryColor: "var(--primary)",
-  primaryHighlightColor: "var(--primary_highlight)",
-  mediaPath: "blue",
-  changeTheme: () => {},
-  getRandomTheme: () => {},
-});
+const ThemeContext = createContext();
 
 // Custom hook to simplify the use of ThemeContext in components
 export function useTheme() {
@@ -25,24 +19,22 @@ export function useTheme() {
 
 // Provider component to wrap application components and provide theme context
 export const ThemeProvider = ({ children }) => {
-  // Initialize state from localStorage or default
-  const initColor = localStorage.getItem("themeColor") || "var(--primary)";
-  const initHighlightColor = localStorage.getItem("themeHighlightColor") || "var(--primary_highlight)";
-  const initMediaPath = localStorage.getItem("themeMediaPath") || "blue";
+  // Define a default theme
+  const defaultTheme = themeMap.blue;
 
-  const [primaryColor, setPrimaryColor] = useState(initColor);
-  const [primaryHighlightColor, setPrimaryHighlightColor] = useState(initHighlightColor);
-  const [mediaPath, setMediaPath] = useState(initMediaPath);
+  // Initialize state from localStorage or default
+  const [primaryColor, setPrimaryColor] = useState(localStorage.getItem("themeColor") || defaultTheme.color);
+  const [primaryHighlightColor, setPrimaryHighlightColor] = useState(localStorage.getItem("themeHighlightColor") || defaultTheme.color + "90"); // Assuming the highlight is a 90% opacity version
+  const [mediaPath, setMediaPath] = useState(localStorage.getItem("themeMediaPath") || defaultTheme.mediaPath);
 
   useEffect(() => {
-    // Apply initial theme colors to CSS root variables
+    // Set the CSS properties on the root element
     document.documentElement.style.setProperty("--primary", primaryColor);
     document.documentElement.style.setProperty("--primary_highlight", primaryHighlightColor);
   }, [primaryColor, primaryHighlightColor]);
 
   const changeTheme = (newColor, newMediaPath) => {
-    const newHighlightColor = newColor + "90";  // Assuming you want a transparency of 90%
-    // Update CSS variables
+    const newHighlightColor = newColor + "90";
     document.documentElement.style.setProperty("--primary", newColor);
     document.documentElement.style.setProperty("--primary_highlight", newHighlightColor);
     setPrimaryColor(newColor);
@@ -55,7 +47,6 @@ export const ThemeProvider = ({ children }) => {
     localStorage.setItem("themeMediaPath", newMediaPath);
   };
 
-  // Function to retrieve a random theme that is different from the current theme
   const getRandomTheme = (currentColor) => {
     let keys = Object.keys(themeMap);
     let newTheme;
