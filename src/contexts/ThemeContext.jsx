@@ -5,7 +5,6 @@ const themeMap = {
   blue: { color: "#0000FF", mediaPath: "blue" },
   red: { color: "#FF0000", mediaPath: "red" },
   green: { color: "#008800", mediaPath: "green" },
-  pink: { color: "#FF00FF", mediaPath: "pink" },
   orange: { color: "#FFBB00", mediaPath: "orange" },
   purple: { color: "#9933EE", mediaPath: "purple" },
 };
@@ -13,6 +12,7 @@ const themeMap = {
 // Create a context for theme management with default values
 const ThemeContext = createContext({
   primaryColor: "var(--primary)",
+  primaryHighlightColor: "var(--primary_highlight)",
   mediaPath: "blue",
   changeTheme: () => {},
   getRandomTheme: () => {},
@@ -26,12 +26,16 @@ export function useTheme() {
 // Provider component to wrap application components and provide theme context
 export const ThemeProvider = ({ children }) => {
   const [primaryColor, setPrimaryColor] = useState("var(--primary)");
+  const [primaryHighlightColor, setPrimaryHighlightColor] = useState("var(--primary_highlight)");
   const [mediaPath, setMediaPath] = useState("blue");
 
   // Function to update the theme
   const changeTheme = (newColor, newMediaPath) => {
+    const newHighlightColor = newColor + "90"
     document.documentElement.style.setProperty("--primary", newColor);
+    document.documentElement.style.setProperty("--primary_highlight", newHighlightColor);
     setPrimaryColor(newColor);
+    setPrimaryHighlightColor(newHighlightColor);
     setMediaPath(newMediaPath);
   };
 
@@ -49,12 +53,13 @@ export const ThemeProvider = ({ children }) => {
   const value = useMemo(
     () => ({
       primaryColor,
+      primaryHighlightColor,
       mediaPath,
       changeTheme,
       getRandomTheme,
       themeMap,
     }),
-    [primaryColor, mediaPath]
+    [primaryColor, primaryHighlightColor, mediaPath]
   );
 
   // Provide the theme context to children components

@@ -29,7 +29,7 @@ function Header() {
       </div>
       <nav
         id="header-navbar"
-        className="flex absolute right-0 top-0 h-full items-center pr-10 text-3xl font-extrabold invisible opacity-0 transition-opacity duration-500 ease-in-out lg:visible lg:opacity-100 2xl:invisible 2xl:opacity-0"
+        className="flex absolute right-0 top-0 h-full items-center pr-[7.5rem] text-3xl font-extrabold invisible opacity-0 transition-opacity duration-500 ease-in-out lg:visible lg:opacity-100 2xl:invisible 2xl:opacity-0"
       >
         <ul className="flex space-x-12">
           <li>

@@ -10,7 +10,7 @@ function Hamburger() {
     <div
       id="hamburger"
       onClick={toggleUI}
-      className="fixed z-30 right-0 h-10 w-10 m-5 cursor-pointer visible opacity-100 transition-opacity duration-500 ease-in-out md:-translate-x-2 md:translate-y-2 lg:invisible lg:opacity-0"
+      className="fixed pointer-events-auto z-30 right-0 h-10 w-10 m-5 cursor-pointer visible opacity-100 transition-opacity duration-500 ease-in-out md:-translate-x-2 md:translate-y-2 lg:pointer-events-none lg:invisible lg:opacity-0"
     >
       <span id="hamburger-top" />
       <span id="hamburger-middle" />
