@@ -1,0 +1,13 @@
+{
+    "metadata": {
+        "totalCount": 1,
+        "page": 1,
+        "perPage": 1
+    },
+    "about": {
+        "id": "1",
+        "name": "about",
+        "path": "/about.md",
+        "lastUpdated": "2024-05-10T14:25:30Z"
+    }
+}

@@ -1,7 +1,7 @@
 import React from "react";
 import "../../App.css";
 
-function FeaturedProject({ key, name, imagePath, title }) {
+function FeaturedProject({ name, imagePath, title }) {
   return (
     <div id={`featured-project-${name}`} className="inline-block">
       <div

@@ -3,59 +3,40 @@ import { useTheme } from "../../contexts/ThemeContext";
 import "../../App.css";
 import FeaturedProject from "./FeaturedProject";
 
-const projectsJson = [
-  {
-    id: "1",
-    name: "swarm",
-    imagePath: "swarm.png",
-    title: "drone swarms",
-  },
-  {
-    id: "2",
-    name: "friendship",
-    imagePath: "friendship.png",
-    title: "friend prediction",
-  },
-  {
-    id: "3",
-    name: "butterfly",
-    imagePath: "butterfly.png",
-    title: "butterfly shelf",
-  },
-  {
-    id: "4",
-    name: "intent",
-    imagePath: "intent.png",
-    title: "chatbot intent",
-  },
-  {
-    id: "5",
-    name: "thymio",
-    imagePath: "thymio.png",
-    title: "robot navigation",
-  },
-];
+const fallbackResponsePath = "/fallback_api_responses/featured_projects.json";
 
 function FeaturedProjects() {
   const [projects, setProjects] = useState([]);
   const { mediaPath } = useTheme();
 
   useEffect(() => {
-    document.title = "Home - Thomas Kimble";
-  }, []);
-
-  useEffect(() => {
     async function fetchProjects() {
-      let fetchedProjects = [];
+      let fetchedProjects;
 
       try {
         const response = await fetch("https://api.example.com/projects");
-        fetchedProjects = await response.json();
+        if (!response.ok) throw new Error("Network response failure.");
+        const data = await response.json();
+        fetchedProjects = data.projects; // Correctly access the projects array from the response
       } catch (error) {
-        console.log("API not set up, using hardcoded data");
-        fetchedProjects = projectsJson;
+        console.warn(
+          "API not set up or failed, using fallback data from local JSON:",
+          error
+        );
+        // Fetch fallback data from local JSON file if the API fails
+        try {
+          const fallbackResponse = await fetch(fallbackResponsePath);
+          if (!fallbackResponse.ok)
+            throw new Error("Fallback response failure.");
+          const fallbackData = await fallbackResponse.json();
+          fetchedProjects = fallbackData.projects;
+        } catch (fbError) {
+          console.error("Failed to fetch fallback JSON data:", fbError);
+          fetchedProjects = []; // Set to an empty array if even the fallback fetch fails
+        }
       }
 
+      // Append the media path to the imagePath for each project
       const updatedProjects = fetchedProjects.map((project) => ({
         ...project,
         imagePath: `/projects/featured/${mediaPath}/${project.imagePath}`,
