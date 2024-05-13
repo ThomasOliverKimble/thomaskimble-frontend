@@ -37,7 +37,7 @@ function ThemeButton() {
       {swipe && (
         <div
           id="theme-button-color-swipe"
-          className="color-swipe"
+          className="fixed top-0 -left-full w-[200vw] h-[200vh] z-[49] animate-swipe"
           style={{ backgroundColor: nextTheme.color }}
         ></div>
       )}
