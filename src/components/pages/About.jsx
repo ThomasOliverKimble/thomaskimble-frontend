@@ -3,7 +3,7 @@ import { Page } from ".";
 import ReactMarkdown from "react-markdown";
 import "../../App.css";
 
-const fallbackResponsePath = "/fallback_api_responses/about_path.json";
+const fallbackResponsePath = "/fallback/api_responses/about_path.json";
 
 function About() {
   const [markdownPath, setMarkdownPath] = useState("");

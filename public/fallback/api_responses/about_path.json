@@ -7,7 +7,7 @@
     "about": {
         "id": "1",
         "name": "about",
-        "path": "/about.md",
+        "path": "/fallback/markdown/about.md",
         "lastUpdated": "2024-05-10T14:25:30Z"
     }
 }

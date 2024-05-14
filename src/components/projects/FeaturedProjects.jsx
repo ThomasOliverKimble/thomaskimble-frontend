@@ -3,7 +3,7 @@ import { useTheme } from "../../contexts/ThemeContext";
 import "../../App.css";
 import FeaturedProject from "./FeaturedProject";
 
-const fallbackResponsePath = "/fallback_api_responses/featured_projects.json";
+const fallbackResponsePath = "/fallback/api_responses/featured_projects.json";
 
 function FeaturedProjects() {
   const [projects, setProjects] = useState([]);
@@ -48,7 +48,10 @@ function FeaturedProjects() {
   }, [mediaPath]);
 
   return (
-    <div id="featured-projects" className="w-full overflow-hidden whitespace-nowrap">
+    <div
+      id="featured-projects"
+      className="w-full overflow-hidden whitespace-nowrap"
+    >
       <div
         id="featured-projects-container"
         className="inline-block animate-caroussel"
