@@ -21,7 +21,10 @@ function About() {
         const data = await response.json();
         setMarkdownPath(data.about.path);
       } catch (error) {
-        console.warn("API not set up or failed, using fallback data from local JSON:", error);
+        console.warn(
+          "API not set up or failed, using fallback data from local JSON:",
+          error
+        );
         try {
           const fallbackResponse = await fetch(fallbackResponsePath);
           if (!fallbackResponse.ok)
@@ -40,11 +43,14 @@ function About() {
 
   useEffect(() => {
     async function fetchMarkdown() {
+      console.log("MARKDOWN PATH:\n", markdownPath);
       if (markdownPath) {
         try {
           const response = await fetch(markdownPath);
-          if (!response.ok) throw new Error("Failed to fetch markdown content.");
+          if (!response.ok)
+            throw new Error("Failed to fetch markdown content.");
           const text = await response.text();
+          console.log("MARKDOWN CONTENT:\n", text);
           setMarkdownContent(text);
         } catch (error) {
           console.error("Error fetching markdown content:", error);
@@ -54,7 +60,7 @@ function About() {
     }
 
     fetchMarkdown();
-  }, [markdownPath]); // Depend on markdownPath
+  }, [markdownPath]);
 
   return (
     <Page id="about-page">
