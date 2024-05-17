@@ -60,7 +60,7 @@ function About() {
               return (
                 <img
                   key={index}
-                  src={`https://storage.thomaskimble.com${section.src}`}
+                  src={`https://storage.thomaskimble.com/${section.src}`}
                   alt=""
                 />
               );
