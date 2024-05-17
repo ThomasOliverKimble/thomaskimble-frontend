@@ -13,7 +13,7 @@ function Home() {
     <Page pageType="page-home" id="home-page">
       <div
         id="home-page-landing"
-        className="flex flex-col justify-between min-h-[800px] h-[calc(100svh-13rem)] 2xl:h-[calc(100svh-5rem)]"
+        className="flex flex-col justify-between min-h-[800px] h-[calc(100dvh-13rem)] 2xl:h-[calc(100dvh-5rem)]"
       >
         <Hero></Hero>
         <ProjectCarousel />
