@@ -1,7 +1,7 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { ThemeProvider, UIProvider } from "./contexts";
-import { Backdrop, Hamburger, Header, Logo, Sidebar } from "./components/navigation";
+import Navigation from "./components/Navigation";
 import { About, Contact, Home, Projects } from "./components/pages";
 import ThemeButton from "./components/ThemeButton";
 
@@ -11,11 +11,7 @@ function App() {
       <UIProvider>
         <ThemeButton />
         <Router>
-          <Sidebar />
-          <Hamburger />
-          <Backdrop />
-          <Header />
-          <Logo />
+          <Navigation />
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/projects" element={<Projects />} />

@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
-import { useTheme } from "../../contexts/ThemeContext";
-import "../../App.css";
-import FeaturedProject from "./FeaturedProject";
+import { useTheme } from "../contexts/ThemeContext";
+import "../App.css";
+import ProjectCard from "./ProjectCard";
 
 const fallbackResponsePath = "/fallback/api_responses/featured_projects.json";
 
-function FeaturedProjects() {
+function ProjectCarousel() {
   const [projects, setProjects] = useState([]);
   const { mediaPath } = useTheme();
 
@@ -59,7 +59,7 @@ function FeaturedProjects() {
         className="inline-block animate-caroussel"
       >
         {projects.map((project) => (
-          <FeaturedProject
+          <ProjectCard
             key={project.id}
             name={project.name}
             imagePath={project.imagePath}
@@ -72,7 +72,7 @@ function FeaturedProjects() {
         className="inline-block animate-caroussel"
       >
         {projects.map((project) => (
-          <FeaturedProject
+          <ProjectCard
             key={project.id}
             name={project.name}
             imagePath={project.imagePath}
@@ -84,4 +84,4 @@ function FeaturedProjects() {
   );
 }
 
-export default FeaturedProjects;
+export default ProjectCarousel;

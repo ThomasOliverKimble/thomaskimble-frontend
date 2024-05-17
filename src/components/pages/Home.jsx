@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import "../../App.css";
-import { FeaturedProjects } from "../projects";
-import { Page } from ".";
+import ProjectCarousel from "../ProjectCarousel";
+import Page from "../Page";
 import Hero from "../Hero";
 
 function Home() {
@@ -10,10 +10,13 @@ function Home() {
   }, []);
 
   return (
-    <Page id="home-page">
-      <div id="home-page-landing" className="flex flex-col justify-between min-h-[800px] h-[calc(100svh-13rem)] 2xl:h-[calc(100svh-5rem)]">
+    <Page pageType="page-home" id="home-page">
+      <div
+        id="home-page-landing"
+        className="flex flex-col justify-between min-h-[800px] h-[calc(100svh-13rem)] 2xl:h-[calc(100svh-5rem)]"
+      >
         <Hero></Hero>
-        <FeaturedProjects/>
+        <ProjectCarousel />
       </div>
     </Page>
   );

@@ -53,6 +53,7 @@ h1 {
   font-size: 4rem;
   /* # extrabold in Tailwind */
   font-weight: 800;
+  margin-bottom: 1rem;
 }
 
 h3 {

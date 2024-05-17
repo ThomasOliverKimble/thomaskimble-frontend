@@ -1,7 +1,7 @@
 import React from "react";
-import "../../App.css";
+import "../App.css";
 
-function FeaturedProject({ name, imagePath, title }) {
+function ProjectCard({ name, imagePath, title }) {
   return (
     <div id={`featured-project-${name}`} className="inline-block">
       <div
@@ -35,4 +35,4 @@ function FeaturedProject({ name, imagePath, title }) {
   );
 }
 
-export default FeaturedProject;
+export default ProjectCard;

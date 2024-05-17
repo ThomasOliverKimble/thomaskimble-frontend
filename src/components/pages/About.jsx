@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { Page } from ".";
+import Page from "../Page";
+import Loading from "../Loading";
 import "../../App.css";
 
 const fallbackResponsePath = "/fallback/api_responses/about_path.json";
@@ -46,7 +47,7 @@ function About() {
   }, []);
 
   return (
-    <Page id="about-page" className={bodyClass}>
+    <Page id="about-page" pageType={`${bodyClass}`}>
       {sections.length ? (
         sections.map((section, index) => {
           switch (section.type) {
@@ -58,18 +59,28 @@ function About() {
               return <p key={index}>{section.content}</p>;
             case "image":
               return (
-                <img
+                <div
                   key={index}
-                  src={`https://storage.thomaskimble.com/${section.src}`}
-                  alt=""
-                />
+                  className="bg-primary rounded-3xl overflow-hidden p-[8px] my-10 mx-0 lg:mx-20"
+                >
+                  <div
+                    key={index}
+                    className="bg-fond rounded-2xl overflow-hidden p-[4px]"
+                  >
+                    <img
+                      className="rounded-xl"
+                      src={`https://storage.thomaskimble.com/${section.src}`}
+                      alt="thomaskimble_full"
+                    />
+                  </div>
+                </div>
               );
             default:
               return null;
           }
         })
       ) : (
-        <p>Loading...</p>
+        <Loading />
       )}
     </Page>
   );
