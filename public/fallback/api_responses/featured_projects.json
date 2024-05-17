@@ -1,38 +1,33 @@
 {
-    "metadata": {
-        "totalCount": 5,
-        "page": 1,
-        "perPage": 5
-    },
     "projects": [
         {
             "id": "1",
-            "name": "swarm",
             "imagePath": "swarm.png",
+            "name": "swarm",
             "title": "drone swarms"
         },
         {
             "id": "2",
-            "name": "friendship",
             "imagePath": "friendship.png",
+            "name": "friendship",
             "title": "friend prediction"
         },
         {
             "id": "3",
-            "name": "butterfly",
             "imagePath": "butterfly.png",
+            "name": "butterfly",
             "title": "butterfly shelf"
         },
         {
             "id": "4",
-            "name": "intent",
             "imagePath": "intent.png",
+            "name": "intent",
             "title": "chatbot intent"
         },
         {
             "id": "5",
-            "name": "thymio",
             "imagePath": "thymio.png",
+            "name": "thymio",
             "title": "robot navigation"
         }
     ]

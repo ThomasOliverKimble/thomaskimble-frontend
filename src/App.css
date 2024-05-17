@@ -45,3 +45,30 @@ body.no-scroll #root {
 #featured-projects:hover #featured-projects-container {
   animation-play-state: paused;
 }
+
+h1 {
+  color: var(--primary);
+  text-transform: lowercase;
+  /* 6xl in Tailwind (4rem * 16px = 64px) */
+  font-size: 4rem;
+  /* # extrabold in Tailwind */
+  font-weight: 800;
+}
+
+h3 {
+  color: var(--primary);
+  text-transform: lowercase;
+  /* 3xl in Tailwind */
+  font-size: 1.875rem;
+  line-height: 2.25rem;
+  /* bold in Tailwind */
+  font-weight: 700;
+  margin-top: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+p {
+  color: var(--primary);
+  font-weight: 400;
+  margin-bottom: 1rem;
+}

@@ -10,11 +10,9 @@ function Hero() {
         </h1>
         <p className="text-primary text-xl font-normal text-left w-full md:w-3/4 max-w-[50rem] mt-4">
           Explore my world, where robotics, data and software engineering meet
-          creativity and design.
-          Discover projects that blend technology with
+          creativity and design. Discover projects that blend technology with
           creativity and learn about my studies, my hobbies, my career, and
-          beyond.
-          Feel free to reach out to discuss ideas, collaborate, or
+          beyond. Feel free to reach out to discuss ideas, collaborate, or
           simply learn more about my work.
         </p>
       </div>

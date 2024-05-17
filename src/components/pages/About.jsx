@@ -1,25 +1,27 @@
 import React, { useState, useEffect } from "react";
 import { Page } from ".";
-import ReactMarkdown from "react-markdown";
 import "../../App.css";
 
 const fallbackResponsePath = "/fallback/api_responses/about_path.json";
 
 function About() {
-  const [markdownPath, setMarkdownPath] = useState("");
-  const [markdownContent, setMarkdownContent] = useState("");
+  const [bodyClass, setBodyClass] = useState("");
+  const [sections, setSections] = useState([]);
 
   useEffect(() => {
     document.title = "About - Thomas Kimble";
   }, []);
 
   useEffect(() => {
-    async function fetchMarkdownPath() {
+    async function fetchAboutData() {
       try {
-        const response = await fetch(`https://api.example.com/about`);
+        const response = await fetch(
+          "https://api.thomaskimble.com/about_page_content"
+        );
         if (!response.ok) throw new Error("Network response failure.");
         const data = await response.json();
-        setMarkdownPath(data.about.path);
+        setBodyClass(data.bodyClass);
+        setSections(data.sections);
       } catch (error) {
         console.warn(
           "API not set up or failed, using fallback data from local JSON:",
@@ -30,42 +32,42 @@ function About() {
           if (!fallbackResponse.ok)
             throw new Error("Fallback response failure.");
           const fallbackData = await fallbackResponse.json();
-          setMarkdownPath(fallbackData.about.path);
+          setBodyClass(fallbackData.bodyClass);
+          setSections(fallbackData.sections);
         } catch (fbError) {
-          console.error("Failed to fetch fallback path:", fbError);
-          setMarkdownPath("");
+          console.error("Failed to fetch fallback data:", fbError);
+          setBodyClass("");
+          setSections([]);
         }
       }
     }
 
-    fetchMarkdownPath();
+    fetchAboutData();
   }, []);
 
-  useEffect(() => {
-    async function fetchMarkdown() {
-      console.log("MARKDOWN PATH:\n", markdownPath);
-      if (markdownPath) {
-        try {
-          const response = await fetch(markdownPath);
-          if (!response.ok)
-            throw new Error("Failed to fetch markdown content.");
-          const text = await response.text();
-          console.log("MARKDOWN CONTENT:\n", text);
-          setMarkdownContent(text);
-        } catch (error) {
-          console.error("Error fetching markdown content:", error);
-          setMarkdownContent("# Error loading content");
-        }
-      }
-    }
-
-    fetchMarkdown();
-  }, [markdownPath]);
-
   return (
-    <Page id="about-page">
-      {markdownContent ? (
-        <ReactMarkdown>{markdownContent}</ReactMarkdown>
+    <Page id="about-page" className={bodyClass}>
+      {sections.length ? (
+        sections.map((section, index) => {
+          switch (section.type) {
+            case "title":
+              return <h1 key={index}>{section.title}</h1>;
+            case "header":
+              return <h3 key={index}>{section.content}</h3>;
+            case "text":
+              return <p key={index}>{section.content}</p>;
+            case "image":
+              return (
+                <img
+                  key={index}
+                  src={`https://storage.thomaskimble.com${section.src}`}
+                  alt=""
+                />
+              );
+            default:
+              return null;
+          }
+        })
       ) : (
         <p>Loading...</p>
       )}

@@ -14,10 +14,12 @@ function FeaturedProjects() {
       let fetchedProjects;
 
       try {
-        const response = await fetch("https://api.example.com/projects");
+        const response = await fetch(
+          "https://api.thomaskimble.com/featured_projects"
+        );
         if (!response.ok) throw new Error("Network response failure.");
         const data = await response.json();
-        fetchedProjects = data.projects; // Correctly access the projects array from the response
+        fetchedProjects = data.projects;
       } catch (error) {
         console.warn(
           "API not set up or failed, using fallback data from local JSON:",
