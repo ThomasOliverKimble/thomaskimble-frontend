@@ -6,11 +6,11 @@
             "type": "title"
         },
         {
-            "content": "My name is **Thomas Oliver Kimble**, an engineer with a rich blend of skills and interests, encompassing data science, robotics, cloud engineering, and a strong passion for both music and design.",
+            "content": "My name is Thomas Kimble, an engineer with a rich blend of skills and interests, encompassing data science, robotics, cloud engineering, and a strong passion for both music and design.",
             "type": "text"
         },
         {
-            "src": "/images/about/me.jpg",
+            "src": "media/images/thomaskimble_full.jpeg",
             "type": "image"
         },
         {
@@ -18,7 +18,7 @@
             "type": "header"
         },
         {
-            "content": "Originally from England, I moved to Switzerland when I was three and later to France. My education was mainly in Switzerland, where I pursued engineering—a field that aligned perfectly with my passion for math, science, and design. This combination of interests led me to explore both the analytical and creative sides of my personality, particularly through music. From the age of seven, I was immersed in music, playing in bands and learning instruments like the guitar, drums, and piano.",
+            "content": "Originally from England, I moved to Switzerland when I was three and later to France. My education was mainly in Switzerland, where I pursued engineering, a field that aligned perfectly with my passion for math, science, and design. This combination of interests led me to explore both the analytical and creative sides of my personality, particularly through music. From the age of seven, I was immersed in music, playing in bands and learning instruments like the guitar, drums, and piano.",
             "type": "text"
         },
         {
@@ -26,7 +26,7 @@
             "type": "header"
         },
         {
-            "content": "I completed a scientific French Baccalauréat in 2015 and went on to earn a Bachelor’s Degree in Microengineering from EPFL in 2019. I furthered my education with a Master’s degree in Robotics from EPFL, specializing in Data Science and Space Technologies. My time at EPFL enriched my skills across various engineering fields, with a deep dive into robotics-oriented software engineering and Data in the final years.",
+            "content": "I completed a scientific French Baccalauréat in 2015 and went on to earn a Bachelor's Degree in Microengineering from EPFL in 2019. I furthered my education with a Master's degree in Robotics from EPFL, specializing in Data Science and Space Technologies. My time at EPFL enriched my skills across various engineering fields, with a deep dive into robotics-oriented software engineering and Data in the final years.",
             "type": "text"
         },
         {
@@ -38,7 +38,7 @@
             "type": "text"
         },
         {
-            "content": "During my master’s thesis at Cyberbotics, I worked on the Webots robotics simulator, improving its functionality and performance. This included enhancements to the robotbenchmark.net and webots.cloud platforms, making them more secure and efficient for online simulations.",
+            "content": "During my master's thesis at Cyberbotics, I worked on the Webots robotics simulator, improving its functionality and performance. This included enhancements to the robotbenchmark.net and webots.cloud platforms, making them more secure and efficient for online simulations.",
             "type": "text"
         },
         {

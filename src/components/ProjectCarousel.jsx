@@ -1,53 +1,36 @@
-import React, { useState, useEffect } from "react";
-import { useTheme } from "../contexts/ThemeContext";
-import "../App.css";
+import React, { useEffect } from "react";
+import { useUtils } from "../hooks/utils";
 import ProjectCard from "./ProjectCard";
-
-const fallbackResponsePath = "/fallback/api_responses/featured_projects.json";
+import "../App.css";
 
 function ProjectCarousel() {
-  const [projects, setProjects] = useState([]);
-  const { mediaPath } = useTheme();
+  const { getImageSource, useFetchData } = useUtils();
+
+  // Fetch and cache data
+  const endpoint = "featured_projects";
+  const { data, error, isLoading } = useFetchData(endpoint);
 
   useEffect(() => {
-    async function fetchProjects() {
-      let fetchedProjects;
+    document.title = "Featured Projects - Thomas Kimble";
+  }, []);
 
-      try {
-        const response = await fetch(
-          "https://api.thomaskimble.com/featured_projects"
-        );
-        if (!response.ok) throw new Error("Network response failure.");
-        const data = await response.json();
-        fetchedProjects = data.projects;
-      } catch (error) {
-        console.warn(
-          "API not set up or failed, using fallback data from local JSON:",
-          error
-        );
-        // Fetch fallback data from local JSON file if the API fails
-        try {
-          const fallbackResponse = await fetch(fallbackResponsePath);
-          if (!fallbackResponse.ok)
-            throw new Error("Fallback response failure.");
-          const fallbackData = await fallbackResponse.json();
-          fetchedProjects = fallbackData.projects;
-        } catch (fbError) {
-          console.error("Failed to fetch fallback JSON data:", fbError);
-          fetchedProjects = []; // Set to an empty array if even the fallback fetch fails
-        }
-      }
+  if (isLoading) return <div>Loading...</div>;
 
-      // Append the media path to the imagePath for each project
-      const updatedProjects = fetchedProjects.map((project) => ({
-        ...project,
-        imagePath: `/projects/featured/${mediaPath}/${project.imagePath}`,
-      }));
-      setProjects(updatedProjects);
-    }
+  if (error) {
+    console.error("Failed to fetch data:", error);
+    return (
+      <div>
+        <p>Error loading content. Please try again later.</p>
+      </div>
+    );
+  }
 
-    fetchProjects();
-  }, [mediaPath]);
+  const projects = data.projects.map((project) => ({
+    ...project,
+    imagePath: getImageSource(
+      `media/illustrations/color/featured_projects/${project.imagePath}`
+    ),
+  }));
 
   return (
     <div

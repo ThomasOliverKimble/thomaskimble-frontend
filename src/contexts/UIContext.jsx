@@ -9,9 +9,6 @@ import React, {
 // Context creation for UI management across the application
 const UIContext = createContext();
 
-// Custom hook for accessing UIContext
-export const useUI = () => useContext(UIContext);
-
 // List of DOM element IDs that will be toggled with 'active' class
 const elementIds = [
   "sidebar",
@@ -105,3 +102,6 @@ export const UIProvider = ({ children }) => {
     </UIContext.Provider>
   );
 };
+
+// Custom hook for accessing UIContext
+export const useUI = () => useContext(UIContext);

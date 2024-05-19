@@ -1,2 +1,3 @@
-export { ThemeProvider } from './ThemeContext';
-export { UIProvider } from './UIContext';
+export { ConfigProvider, useConfig } from "./ConfigContext";
+export { ThemeProvider, useTheme } from "./ThemeContext";
+export { UIProvider, useUI } from "./UIContext";
